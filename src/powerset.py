@@ -9,4 +9,16 @@ def power(x: list[Any]) -> list[list[Any]]:
 
     Returns the power-set of x as a list of lists.
     """
-    return []  # FIXME: you need to add some code here.
+    subsets = []
+    powerset_size = 2**len(x)
+    set_size = len(x)
+
+    for counter in range(powerset_size):
+        subset = []
+        for k in range(set_size):
+            # Going through binary counter            
+            if counter & 1<<k:
+                subset.append(x[k])
+            subsets.append(subset)        
+
+    return subsets
